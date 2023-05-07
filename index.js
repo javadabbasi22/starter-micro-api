@@ -1,10 +1,19 @@
 const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router("db.json")
-var fs = require('fs');
-fs.chmod("db.json",  0666, (err) => {
-  if (err) throw err;
-  console.log('The permissions for file "db.json" have been changed!');
+// require fs (filesystem) module
+const fs = require("fs");
+
+// change permission of myFile.txt to 775
+fs.chmod("db.json", 0o775, (error) => {
+  // in-case of any errors
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  // do other stuff
+  console.log("Permissions are changed for the file!");
 }); 
 
 const middlewares = jsonServer.defaults()
