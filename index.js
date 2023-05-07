@@ -8,7 +8,7 @@ const fs = require("fs");
 fs.chmod("db.json", 0o775, (error) => {
   // in-case of any errors
   if (error) {
-    console.log(error);
+    console.log(error,"55kk");
     return;
   }
 
